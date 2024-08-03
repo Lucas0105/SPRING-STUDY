@@ -2,10 +2,6 @@
 - [JDK 설치](#jdk-설치)
 - [Vscode 설치](#vscode-설치)
 - [Spring Boot PJT 생성](#spring-boot-pjt-생성)
-
-<br/>    
-
-# TDD Setting
 - [TDD 설정](#TDD-설정)
 
 <br/>    
