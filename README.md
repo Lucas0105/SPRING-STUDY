@@ -38,6 +38,33 @@
 - **Maven**: 프로젝트 빌드, 의존성 관리, 플러그인 지원 등 프로젝트의 생명주기 관리를 도와주는 빌드 툴.  
   Spring과 Maven은 함께 사용되어 의존성 설정, 빌드, 배포 과정을 단순화함.
 
+# 스프링 환경설정 요약
+
+## 1. JDK 설치
+- 스프링을 실행하려면 JDK(Java Development Kit)가 필요합니다.
+
+---
+
+## 2. 사용할 IDE 선택
+- **STS (Spring Tool Suite)**: 스프링 전용으로 구성된 IDE.
+- **IntelliJ IDEA**: 강력한 기능을 제공하며, 특히 Ultimate 버전은 스프링 지원이 우수.
+
+---
+
+## 3. 프로젝트 생성
+- [start.spring.io](https://start.spring.io)에서 스프링 프로젝트를 생성:
+  - **Group**: 회사 도메인의 역순으로 작성 (예: `com.companyname`).
+  - **Artifact**: 프로젝트 이름 작성 (예: `projectname`).
+
+---
+
+## 4. 프로젝트 기본 구조
+- **`pom.xml`**: 프로젝트 의존성과 빌드 정보를 정의하는 파일(Maven 사용 시).
+- **`mvnw`**: Maven Wrapper, 별도 Maven 설치 없이 사용 가능.
+- **`*BootApplication.java`**: 프로젝트의 메인 실행 클래스.
+- **`application.properties`**: 애플리케이션 환경설정 파일.
+- **`*BootApplicationTest.java`**: 테스트 클래스.
+
 
 # Spring Setting
 - [JDK 설치](#jdk-설치)
