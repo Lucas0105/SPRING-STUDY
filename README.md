@@ -176,6 +176,54 @@ HTTP는 웹에서 클라이언트와 서버 간 데이터를 주고받기 위한
 - **HTTP:** 암호화 X → 데이터 노출 가능성 있음.
 - **HTTPS:** SSL/TLS로 암호화된 HTTP → 안전한 데이터 전송.
 
+# REST Uniform Interface
+
+REST의 **Uniform Interface**는 클라이언트와 서버 간 상호작용을 일관되게 유지하기 위한 핵심 원칙입니다. RESTful API를 단순하고 예측 가능하며 사용하기 쉽게 만드는 요소입니다.
+
+## 구성 요소
+
+1. **자원의 식별 (Identification of Resources)**
+   - 리소스는 고유한 URL로 식별.
+   - URL은 데이터를 표현하며, 데이터를 포함하지 않음.
+   - 예:  
+     - `/users/123` (사용자 ID 123의 리소스)
+
+2. **표현을 통한 리소스 조작 (Manipulation of Resources Through Representations)**
+   - 클라이언트는 JSON, XML 등의 형식으로 리소스 표현을 통해 조작.
+   - 표현은 리소스의 상태를 나타냄.
+
+3. **자체 설명 메시지 (Self-descriptive Messages)**
+   - 요청 메시지는 필요한 정보를 자체적으로 포함.
+   - HTTP 메서드와 헤더를 통해 의도를 명확히 전달.
+   - 예:  
+     ```http
+     GET /users/123 HTTP/1.1
+     Host: api.example.com
+     Authorization: Bearer token
+     ```
+
+4. **HATEOAS (Hypermedia as the Engine of Application State)**
+   - 클라이언트는 하이퍼링크를 따라 필요한 리소스를 동적으로 탐색.
+   - 예:  
+     ```json
+     {
+       "id": 123,
+       "name": "John Doe",
+       "links": [
+         {"rel": "self", "href": "/users/123"},
+         {"rel": "orders", "href": "/users/123/orders"}
+       ]
+     }
+     ```
+
+## 장점
+- **일관성**: API가 예측 가능하고 쉽게 이해 가능.
+- **확장성**: 클라이언트가 동적으로 새로운 기능 탐색 가능.
+- **유지보수성**: 클라이언트와 서버의 결합도 낮음.
+- **표준화**: HTTP 표준 활용으로 상호운용성 증가.
+
+## 요약
+Uniform Interface는 클라이언트와 서버가 독립적이면서도 효율적으로 협력할 수 있도록 표준화된 원칙을 제공합니다.
 
 
 # Spring Setting
