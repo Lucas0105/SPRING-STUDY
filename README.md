@@ -362,94 +362,31 @@ public class MyService {
 생성자 주입은 **불변성**, **의존성 명확화**, **테스트 용이성**, **순환 의존성 예방** 등의 장점이 있어, 코드의 안정성, 유지보수성, 확장성을 높이는 데 유리합니다.
 
 
-# Spring Setting
-- [JDK 설치](#jdk-설치)
-- [Vscode 설치](#vscode-설치)
-- [Spring Boot PJT 생성](#spring-boot-pjt-생성)
-- [TDD 설정](#TDD-설정)
+## Layered Architecture
 
-<br/>    
+Layered Architecture는 애플리케이션을 여러 계층으로 나누어 각 계층의 책임을 분리하는 구조입니다. 주요 계층은 보통 다음과 같습니다:
 
-## JDK 설치
+### 1. **Presentation Layer (프레젠테이션 계층)**
+   - **책임**: 사용자 인터페이스(UI)와의 상호작용을 처리.
+   - **구성**: 웹 페이지, RESTful API 등 사용자 요청을 받고 응답을 반환.
 
-### URL
-https://jdk.java.net/java-se-ri/17
+### 2. **Business Logic Layer (비즈니스 로직 계층)**
+   - **책임**: 실제 비즈니스 로직을 처리.
+   - **구성**: 서비스 클래스, 비즈니스 규칙 및 프로세스.
 
-<br/>   
+### 3. **Data Access Layer (데이터 접근 계층)**
+   - **책임**: 데이터베이스와의 상호작용을 처리.
+   - **구성**: DAO(데이터 접근 객체) 또는 레포지토리.
 
-### 환경설정
-- 시스템 환경변수 편집 - 환경변수 - 시스템 변수 - 새로만들기       
-변수 이름 : JAVA_HOME    
-값 : jdk 경로
+### 4. **Database Layer (데이터베이스 계층)**
+   - **책임**: 데이터 저장 및 관리.
+   - **구성**: 실제 데이터베이스, 파일 시스템 등.
 
-<br/>   
+### 장점
+   - **책임 분리**: 각 계층이 고유한 책임을 가지므로 코드가 더 명확하고 유지보수가 쉬워짐.
+   - **유연성**: 각 계층을 독립적으로 변경하고 테스트할 수 있음.
+   - **확장성**: 새로운 기능을 추가하거나 기존 기능을 개선하기 쉬움.
 
-- 시스템 변수 - path - 새로만들기    
-입력 : %JAVA_HOME%\bin
+### 결론
+Layered Architecture는 애플리케이션의 각 부분을 명확히 구분하여 유지보수성과 확장성을 향상시킬 수 있는 효과적인 설계 패턴입니다.
 
-<br/>   
-
-- 설치 확인    
-cmd
-```
-java -version
-```
-
-<br/>   
-
-## Vscode 설치
-
-### vscode 다운로드
-
-### extensions 설치 
-- Extension Pack for Java
-- Spring Boot Extension Pack
-
-<br/>   
-
-## Spring Boot PJT 생성
-
-- vscode 실행
-- ctrl + shift - p
-- spring initialize [maven or gradle]
-
-<br/><br/>   
-
-## TDD 설정
-
-### Dependency 설정
-- MAVEN(pom.xml)
-```
-<dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-test</artifactId>
-	<scope>test</scope>
-</dependency>
-```
-
-<br/>   
-
-- GRADLE(build.gradle)
-```
-testImplementation('org.springframework.boot:spring-boot-starter-test')
-```
-
-<br/>
-
-### 어노테이션 설정
-- WebMvcTest    
-
-@Controller, @ControllerAdvice, @JsonComponent, Filter, WebMvcConfigurer, HandlerMethodArgmentResolver만 로드
-=> @Controller, @RestController 가 설정 된 클래스들을 찾아 메모리에 생성
-
-```
-@WebMvcTest
-```
-- AutoConfigureMockMvc      
-
-WebMVCTest에 추가로 @Service나 @Repository가 붙은 객체들도 모두 메모리에 올린다는 것
-
-```
-@SpringBootTest
-@AutoConfigureMockMvc
-```
