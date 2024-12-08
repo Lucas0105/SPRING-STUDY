@@ -20,8 +20,7 @@ public class HomeController {
 
     @GetMapping("")
     public Map<String, String> index() {
-        Map<String, String> res = userService.getMessage();
 
-        return res;
+        return userService.getMessage();
     }
 }
