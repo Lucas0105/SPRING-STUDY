@@ -22,25 +22,23 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/userId")
-    public User getUserById(Integer userId) {
-        return userService.getUserById(userId);
+    @GetMapping("/{userId}")
+    public User getUserById(@PathVariable Integer userId) {
+        return userService.getUserByUserId(userId);
     }
 
     @PostMapping("")
-    public void registerUser() {
-        User user = TODO();
-        userService.registerUser(user);
+    public User registerUser(@RequestBody User user) {
+        return userService.registerUser(user);
     }
 
-    @PutMapping("/userId")
-    public void modifyUser(Integer userId) {
-        User user = TODO();
-        userService.modifyUserById(userId, user);
+    @PutMapping("")
+    public void modifyUser(@RequestBody User user) {
+        userService.modifyUserById(user);
     }
 
-    @DeleteMapping("/userId")
-    public void removeUser(Integer userId) {
+    @DeleteMapping("/{userId}")
+    public void removeUser(@PathVariable Integer userId) {
         userService.removeUser(userId);
     }
 }
