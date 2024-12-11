@@ -390,3 +390,56 @@ Layered Architecture는 애플리케이션을 여러 계층으로 나누어 각 
 ### 결론
 Layered Architecture는 애플리케이션의 각 부분을 명확히 구분하여 유지보수성과 확장성을 향상시킬 수 있는 효과적인 설계 패턴입니다.
 
+### Spring Security란?  
+Spring Security는 **Spring Framework**의 강력한 보안 모듈로, 애플리케이션의 인증(Authentication)과 권한 부여(Authorization)를 처리하는 데 사용됩니다.
+
+#### 주요 특징
+1. **인증(Authentication)**: 사용자의 신원을 확인.  
+2. **권한 부여(Authorization)**: 사용자가 애플리케이션에서 수행할 수 있는 작업을 제어.  
+3. **CSRF 보호**: CSRF 공격 방지 기능 제공.  
+4. **보안 필터 체인**: HTTP 요청을 필터링하여 보안을 강화.  
+5. **확장성**: 다양한 인증 및 권한 부여 전략을 커스터마이징 가능.  
+6. **OAuth 2.0 및 JWT 지원**: 현대적인 인증 방식 통합.  
+
+> **Spring Boot와 함께 사용할 경우**, 최소한의 설정으로도 기본적인 보안 기능을 구현할 수 있습니다.
+
+---
+
+### JWT (JSON Web Token)란?  
+JWT는 **JSON 포맷**으로 사용자에 대한 정보를 안전하게 표현하는 토큰입니다. 주로 **인증 및 권한 부여** 목적으로 사용됩니다.
+
+#### 구조
+1. **Header**: 토큰의 타입(JWT)과 해싱 알고리즘(HMAC, RSA 등).  
+2. **Payload**: 사용자 정보나 클레임(Claim)을 포함.  
+3. **Signature**: Header와 Payload를 조합한 후 비밀키로 암호화한 값.  
+
+#### 특징
+1. **Stateless**: 서버에서 세션 정보를 저장할 필요가 없으므로, 확장성이 뛰어남.  
+2. **Self-contained**: 토큰 자체에 필요한 정보를 담고 있어, 별도의 데이터베이스 조회가 필요 없음.  
+3. **보안**: 토큰이 암호화되지는 않지만, 서명(Signature)을 통해 무결성 검증 가능.  
+4. **활용**
+   - 인증(Authorization)  
+   - 정보 교환(Data Exchange)  
+   - Single Sign-On(SSO)  
+
+---
+
+### CORS (Cross-Origin Resource Sharing)란?  
+CORS는 **브라우저**에서 실행되는 클라이언트가 **다른 출처(origin)**의 리소스에 접근하려고 할 때, 이를 제어하는 보안 정책입니다.
+
+#### Origin의 구성
+- **스키마**: HTTP/HTTPS  
+- **호스트**: 도메인 이름 또는 IP 주소  
+- **포트 번호**
+
+> 예를 들어, 브라우저가 `http://example.com`에서 실행되는 클라이언트에서 `https://api.another.com`에 요청을 보낼 경우, 이는 **교차 출처 요청**에 해당합니다.
+
+#### CORS 주요 요소
+1. **Preflight Request**: 브라우저가 실제 요청 전에 서버의 CORS 설정을 확인하기 위해 OPTIONS 요청을 보냄.  
+2. **Access-Control-Allow-Origin**: 서버가 허용하는 출처를 명시.  
+3. **Access-Control-Allow-Methods**: 허용되는 HTTP 메서드(GET, POST 등).  
+4. **Access-Control-Allow-Headers**: 요청에 사용할 수 있는 HTTP 헤더.  
+
+#### CORS의 필요성
+1. **보안**: 출처 간의 무분별한 데이터 요청을 제한.  
+2. **협력**: 신뢰할 수 있는 출처에서만 리소스 접근을 허용하여, 클라이언트-서버 간 상호작용을 안정적으로 만듦.
