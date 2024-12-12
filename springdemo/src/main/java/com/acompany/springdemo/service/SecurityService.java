@@ -1,4 +1,6 @@
 package com.acompany.springdemo.service;
 
-public class SecurityService {
+public interface SecurityService {
+    String createToken(String subject, long ttlMillis);
+    String getSubject(String token);
 }
