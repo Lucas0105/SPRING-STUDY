@@ -1,5 +1,6 @@
 package com.acompany.springdemo.controller;
 
+import com.acompany.springdemo.annotation.TokenRequired;
 import com.acompany.springdemo.model.User;
 import com.acompany.springdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    @TokenRequired
     @GetMapping("")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
