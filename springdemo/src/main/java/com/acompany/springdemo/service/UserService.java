@@ -44,6 +44,7 @@ public class UserService {
     }
 
     public void removeUser(Integer userId) {
+        userId = userId / 0;
         userRepository.deleteUser(userId);
     }
 }

@@ -15,4 +15,9 @@ public class UserServiceTests {
         User user = new User(700, "kkim");
         userService.registerUser(user);
     }
+
+    @Test
+    public void testRemoveUser() {
+        userService.removeUser(100);
+    }
 }
